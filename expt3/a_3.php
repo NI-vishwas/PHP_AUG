@@ -1,13 +1,13 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $number = intval($_POST["number"]);
 
-    $sqrt = sqrt($number);
+    $inpnumber = intval($_POST["inpnumber"]);
+
+    $sqrt = sqrt($inpnumber);
 
     if ($sqrt == floor($sqrt)) {
-        echo "$number is a perfect square.";
+        echo "$inpnumber is a perfect square.";
     } else {
-        echo "$number is not a perfect square.";
+        echo "$inpnumber is not a perfect square.";
     }
-}
+
 ?>

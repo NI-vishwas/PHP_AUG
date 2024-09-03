@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $a = floatval($_POST["a"]);
     $b = floatval($_POST["b"]);
     $c = floatval($_POST["c"]);
@@ -16,5 +16,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Roots are imaginary.";
     }
-}
+
 ?>

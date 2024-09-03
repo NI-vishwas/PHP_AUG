@@ -1,11 +1,9 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $number = intval($_POST["number"]);
+    $inpnumber = intval($_POST["inpnumber"]);
 
-    if ($number % 2 == 0) {
-        echo "$number is even.";
+    if ($inpnumber % 2 == 0) {
+        echo "$inpnumber is even.";
     } else {
-        echo "$number is odd.";
+        echo "$inpnumber is odd.";
     }
-}
 ?>
