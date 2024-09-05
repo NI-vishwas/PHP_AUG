@@ -30,7 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $salary = $_POST["empSalary"];
     $doj = $_POST["empDOJ"];
 
-    $employee = new Employee($name, $id, $department, $salary, $doj);
-    $employee->displayInfo();
+    $employee1 = new Employee($name, $id, $department, $salary, $doj);
+    //$employee2 = new Employee("vishwas","12345","CSE",20000,date("09/08/2024"));
+    $employee1->displayInfo();
+    //$employee2->displayInfo();
 }
 ?>

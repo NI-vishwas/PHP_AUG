@@ -17,6 +17,11 @@ function filterElements($array1, $array2) {
 // Call the function and get the filtered array
 $result = filterElements($array1, $array2);
 
+// $result = ['c1' => 'Red','c3' => 'White'];
+
 // Display the filtered array in the HTML
-echo "<script>document.getElementById('filteredArray').innerHTML = 'Array(" . json_encode($result) . ")';</script>";
+echo "The remaining elements in array after filtering are: <br>";
+foreach($result as $key => $value){
+echo "$key : $value <br>";
+}
 ?>

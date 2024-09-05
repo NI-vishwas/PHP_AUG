@@ -19,5 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $count = countAadhaarNumbers($text);
 
     echo "Number of Aadhaar numbers found: " . $count;
+    //echo $count[0][0] . ", " . $count[0][1] . ", " . $count[0][2] . "\n";
+
 }
 ?>
