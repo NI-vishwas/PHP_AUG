@@ -1,5 +1,4 @@
 <?php
-
     $a = floatval($_POST["a"]);
     $b = floatval($_POST["b"]);
     $c = floatval($_POST["c"]);

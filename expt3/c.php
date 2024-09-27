@@ -10,12 +10,12 @@ function newton_square_root($number, $tolerance = 0.000001) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $inpnumber = floatval($_POST["inpnumber"]);
+    $number = floatval($_POST["number"]);
 
-    if ($inpnumber < 0) {
+    if ($number < 0) {
         echo "Please enter a non-negative number.";
     } else {
-        $result = newton_square_root($inpnumber);
+        $result = newton_square_root($number);
         echo "The square root of $number is approximately $result";
     }
 }

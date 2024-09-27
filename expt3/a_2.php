@@ -1,5 +1,4 @@
 <?php
-
     $dividend = intval($_POST["dividend"]);
     $divisor = intval($_POST["divisor"]);
 
