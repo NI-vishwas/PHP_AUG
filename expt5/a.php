@@ -1,30 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Demonstrating date() Function</title>
-</head>
-<body>
-    <h1>Date and Time Examples</h1>
+<?php
+// Function to calculate mean
+function calculate_mean($numbers) {
+  $sum = array_sum($numbers);
+  $count = count($numbers);
+  return $sum / $count;
+}
 
-    <p>Current Date and Time: <?php echo date("Y-m-d H:i:s"); ?></p>
+// Function to calculate standard deviation
+function calculate_standard_deviation($numbers) {
+  $mean = calculate_mean($numbers);
+  $squared_differences = array_map(function($num) use ($mean) {
+    return pow($num - $mean, 2);
+  }, $numbers);
+  $variance = array_sum($squared_differences) / (count($numbers) - 1);
+  return sqrt($variance);
+}
 
-    <p>Date in Day Month Year Format: <?php echo date("j F Y"); ?></p>
+// Get the numbers from the form input
+$numbers_string = $_POST['numbers'];
+$numbers_array = explode(',', $numbers_string);
 
-    <p>Time in 12-Hour Format: <?php echo date("h:i:s A"); ?></p>
+// Calculate mean and standard deviation
+$mean = calculate_mean($numbers_array);
+$standard_deviation = calculate_standard_deviation($numbers_array);
 
-    <p>Time in 24-Hour Format: <?php echo date("H:i:s"); ?></p>
-
-    <p>Day of the Week: <?php echo date("l"); ?></p>
-
-    <p>Month of the Year: <?php echo date("F"); ?></p>
-
-    <p>Year: <?php echo date("Y"); ?></p>
-
-    <p>Day of the Month: <?php echo date("d"); ?></p>
-
-    <p>Week of the Year: <?php echo date("W"); ?></p>
-
-    <p>Day of the Year: <?php echo date("z"); ?></p>
-
-    </body>
-</html>
+// Display the results
+echo "<h2>Results:</h2>";
+echo "<p>Mean: " . number_format($mean, 2) . "</p>";
+echo "<p>Standard Deviation: " . number_format($standard_deviation, 2) . "</p>";
+?>

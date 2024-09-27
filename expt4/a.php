@@ -1,31 +1,22 @@
 <?php
-// Function to calculate mean
-function calculate_mean($numbers) {
-  $sum = array_sum($numbers);
-  $count = count($numbers);
-  return $sum / $count;
+function newton_square_root($number, $tolerance = 0.000001) {
+    $guess = $number / 2;
+
+    while (abs($guess * $guess - $number) > $tolerance) {
+        $guess = ($guess + $number / $guess) / 2;
+    }
+
+    return $guess;
 }
 
-// Function to calculate standard deviation
-function calculate_standard_deviation($numbers) {
-  $mean = calculate_mean($numbers);
-  $squared_differences = array_map(function($num) use ($mean) {
-    return pow($num - $mean, 2);
-  }, $numbers);
-  $variance = array_sum($squared_differences) / (count($numbers) - 1);
-  return sqrt($variance);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $inpnumber = floatval($_POST["inpnumber"]);
+
+    if ($inpnumber < 0) {
+        echo "Please enter a non-negative number.";
+    } else {
+        $result = newton_square_root($inpnumber);
+        echo "The square root of $number is approximately $result";
+    }
 }
-
-// Get the numbers from the form input
-$numbers_string = $_POST['numbers'];
-$numbers_array = explode(',', $numbers_string);
-
-// Calculate mean and standard deviation
-$mean = calculate_mean($numbers_array);
-$standard_deviation = calculate_standard_deviation($numbers_array);
-
-// Display the results
-echo "<h2>Results:</h2>";
-echo "<p>Mean: " . number_format($mean, 2) . "</p>";
-echo "<p>Standard Deviation: " . number_format($standard_deviation, 2) . "</p>";
 ?>

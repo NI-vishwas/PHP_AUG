@@ -1,5 +1,4 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dividend = intval($_POST["dividend"]);
     $divisor = intval($_POST["divisor"]);
 
@@ -8,5 +7,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "$dividend is not divisible by $divisor.";
     }
-}
+
 ?>
